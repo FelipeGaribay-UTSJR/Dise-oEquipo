@@ -6,10 +6,10 @@ require('dotenv').config();
 
 // Configuración de express-session
 app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true
-}));
+    secret: 'EquipoDiseño',
+    resave: false,
+    saveUninitialized: true
+  }));
 
 
 var port = process.env.PORT || 3000;
