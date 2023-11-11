@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const app = express();
+const path = require('path'); // Módulo necesario para trabajar con rutas de archivos
 
 require('dotenv').config();
 
@@ -9,8 +10,10 @@ app.use(session({
     secret: 'EquipoDiseño',
     resave: false,
     saveUninitialized: true
-  }));
+}));
 
+// Rutas estáticas para servir archivos estáticos como tu archivo HTML
+app.use(express.static(path.join(__dirname, 'public')));
 
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
