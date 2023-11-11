@@ -15,7 +15,7 @@ app.use(session({
 // Rutas estáticas para servir archivos estáticos como tu archivo HTML
 app.use(express.static(path.join(__dirname, 'public')));
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
