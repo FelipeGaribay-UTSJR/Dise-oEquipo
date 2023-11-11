@@ -1,5 +1,18 @@
-require("dotenv").config();
+const express = require('express');
+const session = require('express-session');
+const app = express();
 
-app.use(process.env.SESSION_SECRET);
+require('dotenv').config();
 
-var port=process.env.PORT || 3000;
+// Configuración de express-session
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+
+
+var port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
